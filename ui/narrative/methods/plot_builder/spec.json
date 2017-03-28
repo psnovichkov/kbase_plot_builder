@@ -5,46 +5,44 @@
     ],
     "contact": "",
     "categories": ["active"],
+    "app_type": "advanced_viewer",
     "widgets": {
         "input": null,
-        "output": null
+        "output": "GenericPlotOuput"
     },
     "parameters": [ 
         {
-            "id": "parameter_1",
+            "id": "plot_params",
+            "ui_class": "parameter",
             "optional": true,
             "advanced": false,
             "allow_multiple": false,
             "default_values": [ "" ],
-            "field_type": "text",
+            "field_type": "custom",
             "text_options": {
-                "valid_ws_types": [ ]
+                "validate_as": "GenericPlot"
             }
         }
     ],
     "behavior": {
         "service-mapping": {
             "url": "",
-            "name": "kbase_plot_builder",
-            "method": "your_method",
+            "name": "eapearson_customInputDev",
+            "method": "validate_custom_input",
             "input_mapping": [
                 {
                     "narrative_system_variable": "workspace",
                     "target_argument_position": 0
                 },
                 {
-                    "input_parameter": "parameter_1",
+                    "input_parameter": "plot_params",
                     "target_argument_position": 1
                 }
             ],
             "output_mapping": [
                 {
-                    "service_method_output_path": [0],
-                    "target_property": "output"
-                },
-                {
-                    "input_parameter": "parameter_1",
-                    "target_property": "input"
+                    "input_parameter": "plot_params",
+                    "target_property": "plot_params"
                 },
                 {
                     "narrative_system_variable": "workspace",
@@ -55,3 +53,4 @@
     },
     "job_id_output_field": "docker"
 }
+
